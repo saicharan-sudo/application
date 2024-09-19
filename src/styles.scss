@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+.logo{
+    width: 120px;
+}
+.feature-icon {
+    width: 1.5rem;
+    border-radius: 0.5rem;
+    height: 2rem;
+}
+.text-bgprimary{
+    background: RGBA(13, 110, 253, var(--bs-bg-opacity, 1)) !important;
+    color: white;
+}
+.formInline{
+    gap: 15px;
+}
+.gap-1 {
+    gap: .25rem !important;
+}
+.gap-2 {
+    gap: .5rem !important;
+}
+.gap-3 {
+    gap: 1rem !important;
+}
+.gap-4 {
+    gap: 1.5rem !important;
+}
+.gap-5 {
+    gap: 3rem !important;
+}

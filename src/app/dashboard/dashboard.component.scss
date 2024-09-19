@@ -1,0 +1,11 @@
+html,
+body {
+  height: 100%
+}
+.bottom-placement.modal-dialog {
+    position:fixed;
+    top:auto;
+    right:auto;
+    left:auto;
+    bottom:0;
+ }  
