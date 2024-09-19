@@ -41,3 +41,12 @@ for deploying the code in github
 Visit the URL to your App gh-pages, it is the same URL you created earlier on our terminal; https://GithubUserName.github.io/GithubRepoName/
 ("https://saicharan-sudo.github.io/application")
 
+
+
+steps
+
+-> push the files to git
+
+-> ng build --base-href "https://saicharan-sudo.github.io/application/"
+
+->npx angular-cli-ghpages --dir=dist/task-new
