@@ -45,3 +45,10 @@
     width: 100%;
     left: 0;
 }
+.custom-dropdown.dropdown-toggle:after{
+    position: relative;
+    top: -3px;
+}
+.secondary-color{
+    color:#a4a4a4;
+}
