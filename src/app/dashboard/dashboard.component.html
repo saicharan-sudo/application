@@ -1,65 +1,98 @@
     <div style="height: 100vh;" class="d-flex justify-content-center align-items-center">
         <div class="">
             <!-- data-toggle="modal" data-target="#modelId" -->
-            <button class="btn btn-primary" (click)="start()">start</button>
+            <button [disabled]="displayOffCanvas" class="btn btn-default button1 px-4 font-weight-bold" (click)="start()">Start</button>
         </div>
     </div>
     
-    <div class="text-right" style="position: relative;bottom: 150px;">
-        <button class="btn btn-primary" (click)="hideAndShowFn()" *ngIf="displayOffCanvas">
-            <ng-container *ngIf="hideAndShowModal">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-                    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-                  </svg>
-            </ng-container>
-            <ng-container *ngIf="!hideAndShowModal">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
-                    <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
-                  </svg>
-            </ng-container>
-        </button>
-
-    </div>
     
     <ng-container  *ngIf="displayOffCanvas" >
-        <div class=" align-items-center mb-5 pb-5 gap-2" [class]="hideAndShowModal ? 'd-lg-flex' : 'd-none'">
-            
-            <div>
-                <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bgprimary bg-gradient fs-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-rocket-fill" viewBox="0 0 16 16">
-                        <path d="M10.175 1.991c.81 1.312 1.583 3.43 1.778 6.819l1.5 1.83A2.5 2.5 0 0 1 14 12.202V15.5a.5.5 0 0 1-.9.3l-1.125-1.5c-.166-.222-.42-.4-.752-.57-.214-.108-.414-.192-.627-.282l-.196-.083C9.7 13.793 8.85 14 8 14s-1.7-.207-2.4-.635q-.101.044-.198.084c-.211.089-.411.173-.625.281-.332.17-.586.348-.752.57L2.9 15.8a.5.5 0 0 1-.9-.3v-3.298a2.5 2.5 0 0 1 .548-1.562l.004-.005L4.049 8.81c.197-3.323.969-5.434 1.774-6.756.466-.767.94-1.262 1.31-1.57a3.7 3.7 0 0 1 .601-.41A.55.55 0 0 1 8 0c.101 0 .17.027.25.064q.056.025.145.075c.118.066.277.167.463.315.373.297.85.779 1.317 1.537M9.5 6c0-1.105-.672-2-1.5-2s-1.5.895-1.5 2S7.172 8 8 8s1.5-.895 1.5-2"/>
-                        <path d="M8 14.5c.5 0 .999-.046 1.479-.139L8.4 15.8a.5.5 0 0 1-.8 0l-1.079-1.439c.48.093.98.139 1.479.139"/>
-                      </svg>
-                </div>
-            </div>
-            <div class="flex-grow-1 my-auto px-2"> 
-                <p class="m-0 text-right">{{ progressPercentage }}%</p>
+        <div class="customOffSetCard">
+            <div class="text-right" >
+                <button class="btn btn-primary p-0 px-3 mr-2" (click)="hideAndShowFn()" *ngIf="displayOffCanvas">
+                    <ng-container *ngIf="hideAndShowModal">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                        </svg>
+                    </ng-container>
+                    <ng-container *ngIf="!hideAndShowModal">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                            <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+                        </svg>
+                    </ng-container>
+                </button>
                 
-                <div class="progress">
-                    <div class="progress-bar" [style.width]="progressPercentage+'%'"></div>
-                </div>            
+            </div>
+            <div class="mx-1" [style.display]="hideAndShowModal ? 'block' : 'none'">
+                <div class="card ">
+                    <div class="row">
+                        <div class="col-sm-2 col-md-1 pr-0 d-none d-md-block">
+                            <div class="align-items-center button1 d-block d-flex h-100 justify-content-center text-white w-100">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="40" fill="currentColor" class="bi bi-rocket-fill" viewBox="0 0 16 16">
+                                    <path d="M10.175 1.991c.81 1.312 1.583 3.43 1.778 6.819l1.5 1.83A2.5 2.5 0 0 1 14 12.202V15.5a.5.5 0 0 1-.9.3l-1.125-1.5c-.166-.222-.42-.4-.752-.57-.214-.108-.414-.192-.627-.282l-.196-.083C9.7 13.793 8.85 14 8 14s-1.7-.207-2.4-.635q-.101.044-.198.084c-.211.089-.411.173-.625.281-.332.17-.586.348-.752.57L2.9 15.8a.5.5 0 0 1-.9-.3v-3.298a2.5 2.5 0 0 1 .548-1.562l.004-.005L4.049 8.81c.197-3.323.969-5.434 1.774-6.756.466-.767.94-1.262 1.31-1.57a3.7 3.7 0 0 1 .601-.41A.55.55 0 0 1 8 0c.101 0 .17.027.25.064q.056.025.145.075c.118.066.277.167.463.315.373.297.85.779 1.317 1.537M9.5 6c0-1.105-.672-2-1.5-2s-1.5.895-1.5 2S7.172 8 8 8s1.5-.895 1.5-2"/>
+                                    <path d="M8 14.5c.5 0 .999-.046 1.479-.139L8.4 15.8a.5.5 0 0 1-.8 0l-1.079-1.439c.48.093.98.139 1.479.139"/>
+                                  </svg>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-11 pl-0">
+                            <div class="card-block">
+                                <p class="m-0 text-right">{{ progressPercentage }}%</p>
+                                
+                                <div class="progress">
+                                    <div class="progress-bar" [style.width]="progressPercentage+'%'"></div>
+                                </div>   
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
             </div>
         </div>
-    </ng-container>
-    
-    
-    <!-- Modal -->
-    <!-- <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-        <div class=" modal-dialog modal-xl" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Body
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save</button>
+        
+        <div class="card" *ngIf="false">
+            <div class="card-body">
+                <!-- <div class=" align-items-center mb-5 pb-5 gap-2" [class]="hideAndShowModal ? 'd-lg-flex' : 'd-none'"> -->
+                    <div class="d-lg-flex align-items-center mb-5 pb-5 gap-2" >
+                        
+                        <div>
+                            <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bgprimary bg-gradient fs-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-rocket-fill" viewBox="0 0 16 16">
+                                    <path d="M10.175 1.991c.81 1.312 1.583 3.43 1.778 6.819l1.5 1.83A2.5 2.5 0 0 1 14 12.202V15.5a.5.5 0 0 1-.9.3l-1.125-1.5c-.166-.222-.42-.4-.752-.57-.214-.108-.414-.192-.627-.282l-.196-.083C9.7 13.793 8.85 14 8 14s-1.7-.207-2.4-.635q-.101.044-.198.084c-.211.089-.411.173-.625.281-.332.17-.586.348-.752.57L2.9 15.8a.5.5 0 0 1-.9-.3v-3.298a2.5 2.5 0 0 1 .548-1.562l.004-.005L4.049 8.81c.197-3.323.969-5.434 1.774-6.756.466-.767.94-1.262 1.31-1.57a3.7 3.7 0 0 1 .601-.41A.55.55 0 0 1 8 0c.101 0 .17.027.25.064q.056.025.145.075c.118.066.277.167.463.315.373.297.85.779 1.317 1.537M9.5 6c0-1.105-.672-2-1.5-2s-1.5.895-1.5 2S7.172 8 8 8s1.5-.895 1.5-2"/>
+                                    <path d="M8 14.5c.5 0 .999-.046 1.479-.139L8.4 15.8a.5.5 0 0 1-.8 0l-1.079-1.439c.48.093.98.139 1.479.139"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex-grow-1 my-auto px-2"> 
+                            <p class="m-0 text-right">{{ progressPercentage }}%</p>
+                            
+                            <div class="progress">
+                                <div class="progress-bar" [style.width]="progressPercentage+'%'"></div>
+                            </div>            
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div> -->
+            
+        </ng-container>
+        
+        
+        <!-- Modal -->
+        <!-- <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+            <div class=" modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Body
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
